@@ -1,4 +1,4 @@
-//database credentials
+
 <?php
 //define is een constante in php
     define('DB_HOST','localhost');

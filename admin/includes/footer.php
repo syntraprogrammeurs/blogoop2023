@@ -9,6 +9,9 @@
                 <div class="ms-3 name">
                     <h5 class="font-bold">John Duck</h5>
                     <h6 class="text-muted mb-0">@johnducky</h6>
+                    <a class="text-success font-bold" href="logout.php">
+                        <i class="bi bi-box-arrow-right"></i>
+                        Logout</a>
                 </div>
             </div>
         </div>
@@ -25,6 +28,9 @@
                 <div class="name ms-4">
                     <h5 class="mb-1">Hank Schrader</h5>
                     <h6 class="text-muted mb-0">@johnducky</h6>
+
+
+
                 </div>
             </div>
             <div class="recent-message d-flex px-4 py-3">
