@@ -1,5 +1,18 @@
 <?php
     $users = User::find_all_users();
+
+  /*  $user = new User();
+    $user->username = "test2";
+    $user->password = "test2";
+    $user->first_name = "test2";
+    $user->last_name = "test2";
+    $user->save();*/
+
+   /* $user = User::find_user_by_id(3);
+    $user->delete();*/
+/*$user = User::find_user_by_id(1);
+$user->last_name = "IKKE";
+$user->save();*/
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -48,6 +61,8 @@
 
                 </tbody>
             </table>
+
+
         </div>
     </div>
 </div>
