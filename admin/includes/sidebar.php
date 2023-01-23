@@ -85,7 +85,7 @@
                             <a href="photos.php">All photos</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="add-photo.php">Add photo</a>
+                            <a href="upload.php">Add photo</a>
                         </li>
                     </ul>
                 </li>

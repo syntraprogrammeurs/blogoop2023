@@ -13,6 +13,8 @@ class Db_object
         }
         //sql injection voorkomen
         $escaped_values = array_map([$database,'escape_string'], $properties);
+        //
+
         //placeholders voor ons statement
         $placeholders = array_fill(0,count($properties),'?');
         //string maken van alle placeholders gescheiden door een komma

@@ -60,10 +60,10 @@ class Photo extends Db_object
         if($this->id){ //bestaat er reeds een image?
             $this->update();
             if(move_uploaded_file($this->tmp_path, $target_path)){
-                if($this->create()){//aanmaken in de database
+              /*  if($this->create()){//aanmaken in de database*/
                     unset($this->tmp_path);
                     return true;
-                }
+               /* }*/
             }
         }else{
             if(!empty($this->errors)){
@@ -103,6 +103,12 @@ class Photo extends Db_object
            return unlink($target_path) ? true : false;
         }else{
             return false;
+        }
+    }
+    public function update_photo(){
+        if(!empty($this->filename)){
+           $target_path = SITE_ROOT.DS.'admin'.DS.$this->picture_path();
+           return unlink($target_path) ? true: false;
         }
     }
 }

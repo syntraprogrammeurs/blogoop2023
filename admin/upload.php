@@ -1,4 +1,5 @@
 <?php
+
 require_once("includes/header.php");
 require_once("includes/sidebar.php");
 require_once("includes/content-top.php");
@@ -6,14 +7,19 @@ if(!$session->is_signed_in()){
     header("Location:Login.php");
 }
 $message = "";
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 $photo = new Photo();
 if(isset($_POST['submit'])){
     $photo->title = $_POST['title'];
     $photo->description = $_POST['description'];
+    $photo->alternate_text = $_POST['alternate_text'];
     $photo->set_file($_FILES['file']);
 }
 if($photo->save()){
     $message = "Foto succesvol opgeladen!";
+    header("Location:photos.php");
 }else{
     $message = join("<br>", $photo->errors);
 }
@@ -39,13 +45,17 @@ if($photo->save()){
                 <form action="upload.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="title">title</label>
-                        <input type="text" name="title" class="form-control">
+                        <input type="text" name="title" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <textarea id="editor" type="text" class="form-control" name="description"></textarea>
+                        <label for="alternate_text">Alt</label>
+                        <input type="alternate_text" name="alternate_text" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <input type="file" name="file" class="form-control">
+                        <textarea id="editor" type="text" class="form-control" name="description" required oninvalid="this.setCustomValidity('beschrijving?')"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" name="file" class="form-control" accept=".jpg, .jpeg, .png, .gif" size="2">
                     </div>
                     <input type="submit" name="submit" value="Upload" class="btn btn-primary">
                 </form>
