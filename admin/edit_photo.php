@@ -9,7 +9,11 @@ if(empty($_GET['id'])){
     $photo = Photo::find_by_id($_GET['id']);
     if(isset($_POST['update'])){
         if($photo){
-            $photo->update_photo();
+            if($_FILES['file']['name']){
+                $photo->update_photo();
+            }else{
+                echo "nok";
+            }
             $photo->title = $_POST['title'];
             $photo->description = $_POST['description'];
             $photo->alternate_text = $_POST['alternate_text'];

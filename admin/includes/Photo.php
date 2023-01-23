@@ -42,7 +42,7 @@ class Photo extends Db_object
     /* methods */
     //opvang van errors
     public function set_file($file){
-        if(empty($file) || !$file || !is_array($file)){
+        if(empty($file) || !$file || !is_array($file) || $file['name']==''){
             $this->errors[] = "no file uploaded";
             return false;
         }else{
