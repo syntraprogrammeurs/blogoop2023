@@ -9,6 +9,7 @@ class Photo extends Db_object
     public $filename;
     public $type;
     public $size;
+    public $alternate_text;
     public $deleted_at;
     public $tmp_path;
     public $upload_directory = "assets/images/photos";
@@ -33,6 +34,7 @@ class Photo extends Db_object
             'filename' => $this->filename,
             'type' => $this->type,
             'size' => $this->size,
+            'alternate_text'=> $this->alternate_text,
             'deleted_at' => $this->deleted_at,
         ];
     }
@@ -93,5 +95,14 @@ class Photo extends Db_object
         }else{
             return 'https://via.placeholder.com/62';
         };
+    }
+    //deleten van een foto
+    public function delete_photo(){
+        if($this->delete()){
+           $target_path = SITE_ROOT.DS.'admin'.DS. $this->picture_path();
+           return unlink($target_path) ? true : false;
+        }else{
+            return false;
+        }
     }
 }

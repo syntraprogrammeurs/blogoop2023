@@ -7,8 +7,6 @@
     include("includes/content-top.php");
     $photos = Photo::find_all();
 
-    $myphoto= Photo::find_by_id(2);
-    $myphoto->soft_delete();
     ?>
 
 <div class="container-fluid">
@@ -43,7 +41,9 @@
                     <th>DESCRIPTION</th>
                     <th>TYPE</th>
                     <th>SIZE</th>
+                    <th>ALTERNATE TEXT</th>
                     <th>DELETED_AT</th>
+                    <th>ACTIONS</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -72,7 +72,18 @@
                             <?php echo $photo->size/1000 . " KB"; ?>
                         </td>
                         <td>
+                            <?php echo $photo->alternate_text; ?>
+                        </td>
+                        <td>
                             <?php echo $photo->deleted_at; ?>
+                        </td>
+                        <td>
+                            <a title="update" class="btn btn-danger rounded-0" href="edit_photo.php?id=<?php echo $photo->id;?>">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a title="delete" class="btn btn-danger rounded-0" href="delete_photo.php?id=<?php echo $photo->id; ?>">
+                                <i class="bi bi-trash-fill"></i>
+                            </a>
                         </td>
                         <th></th>
 

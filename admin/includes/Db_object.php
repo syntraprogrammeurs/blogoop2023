@@ -49,6 +49,7 @@ class Db_object
         $params = [$escaped_id];
         //execute the statement
         $database->query($sql,$params);
+        return true;
     }
     public function soft_delete() {
         global $database;
