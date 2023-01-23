@@ -11,8 +11,6 @@ if(empty($_GET['id'])){
         if($photo){
             if($_FILES['file']['name']){
                 $photo->update_photo();
-            }else{
-                echo "nok";
             }
             $photo->title = $_POST['title'];
             $photo->description = $_POST['description'];

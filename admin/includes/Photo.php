@@ -59,11 +59,13 @@ class Photo extends Db_object
         $target_path = SITE_ROOT.DS.'admin'.DS.$this->upload_directory.DS.$this->filename;
         if($this->id){ //bestaat er reeds een image?
             $this->update();
-            if(move_uploaded_file($this->tmp_path, $target_path)){
-              /*  if($this->create()){//aanmaken in de database*/
+            if($this->tmp_path){
+                if(move_uploaded_file($this->tmp_path, $target_path)){
+                    /*  if($this->create()){//aanmaken in de database*/
                     unset($this->tmp_path);
                     return true;
-               /* }*/
+                    /* }*/
+                }
             }
         }else{
             if(!empty($this->errors)){
