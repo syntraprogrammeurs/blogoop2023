@@ -23,6 +23,8 @@
             </div>
             <h1 class="page-header">Users</h1>
             <hr>
+            <a href="add_user.php" class="btn btn-primary"><i class="bi bi-person-plus"></i></a>
+            <hr>
             <table class="table table-lg">
                 <thead>
                 <tr>
@@ -35,6 +37,8 @@
                     <th>USERNAME</th>
                     <th>FIRSTNAME</th>
                     <th>LASTNAME</th>
+                    <th>DELETED_AT</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -49,8 +53,8 @@
                             <?php echo $user->id; ?>
                         </td>
                         <td>
-                            <div class="avatar avatar-md">
-                                <img class="rounded-circle" src="https://robohash.org/mail@ashallendesign.co.uk" alt="">
+                            <div class="avatar">
+                                <img class="img-thumbnail" class="rounded-circle" src="<?php echo $user->picture_path_and_placeholder(); ?>" alt="">
                             </div>
                             <?php echo $user->username; ?>
                         </td>
@@ -59,6 +63,18 @@
                         </td>
                         <td>
                             <?php echo $user->last_name; ?>
+                        </td>
+                        <td>
+                            <?php echo $user->deleted_at; ?>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger" href="edit_user.php?id=<?php echo $user->id; ?>">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+
+                            <a class="btn btn-danger" href="delete_user.php?id=<?php echo $user->id; ?>">
+                                <i class="bi bi-trash3-fill"></i>
+                            </a>
                         </td>
 
                     </tr>

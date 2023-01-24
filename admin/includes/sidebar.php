@@ -40,7 +40,7 @@
                             <a href="users.php">All users</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="add-user.php">Add user</a>
+                            <a href="add_user.php">Add user</a>
                         </li>
                     </ul>
                 </li>
