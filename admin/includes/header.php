@@ -23,5 +23,4 @@ ob_start();
 
 
 </head>
-<body>
-<div id="app">
+
