@@ -48,7 +48,7 @@ if($photo->save()){
                         <input type="alternate_text" name="alternate_text" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <textarea id="editor" type="text" class="form-control" name="description" required oninvalid="this.setCustomValidity('beschrijving?')"></textarea>
+                        <textarea id="summernote" type="text" class="form-control" name="description" required oninvalid="this.setCustomValidity('beschrijving?')"></textarea>
                     </div>
                     <div class="form-group">
                         <input type="file" name="file" class="form-control" accept=".jpg, .jpeg, .png, .gif" size="2">

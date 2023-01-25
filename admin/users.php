@@ -25,7 +25,7 @@
             <hr>
             <a href="add_user.php" class="btn btn-primary"><i class="bi bi-person-plus"></i></a>
             <hr>
-            <table class="table table-lg">
+            <table id="table_id" class="table table-lg">
                 <thead>
                 <tr>
                     <th class="white-space-nowrap align-middle">

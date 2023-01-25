@@ -18,6 +18,10 @@ ob_start();
 
 
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
+
+
+
 </head>
 <body>
 <div id="app">
