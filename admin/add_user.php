@@ -3,6 +3,7 @@
 if (!$session->is_signed_in()) {
     header("Location: login.php");
 }
+
 $user = new User(); //lege instantie van de class USER
 if(isset($_POST['add_user'])){
     $user->username  = $database->escape_string($_POST['username']);

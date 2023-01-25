@@ -7,10 +7,15 @@ if (!$session->is_signed_in()) {
 if(empty($_GET['id'])){
     header("Location:users.php");
 }
+//ophalen van de user om uw formulier met values te vullen
 $user = User::find_by_id($_GET['id']);
 
+//updaten van de wijzigingen uitgevoerd door de user op het formulier
 if(isset($_POST['update_user'])){
     if($user){
+        if($_FILES['user_image']['name']){
+            $user->update_userphoto();
+        }
         $user->username = $database->escape_string($_POST['username']);
         $user->first_name = $database->escape_string($_POST['first_name']);
         $user->last_name = $database->escape_string($_POST['last_name']);

@@ -85,6 +85,8 @@ class User extends Db_object
         $target_path = SITE_ROOT.DS.'admin'.DS.$this->upload_directory.DS.$this->user_image;
         if($this->id){ //bestaat er reeds een image?
             $this->update();
+            //testen tmp_path, waarom? Wanneer een image groter is dan de toegelaten grootte, dan
+            //zullen type, size en tmp_path leeg zijn. We testen één van deze alvorens op te laden.
             if($this->tmp_path){
                 if(move_uploaded_file($this->tmp_path, $target_path)){
                     /*  if($this->create()){//aanmaken in de database*/
@@ -94,7 +96,7 @@ class User extends Db_object
                 }
             }
         }else{
-            if(empty($this->user_image)){
+            if(!empty($this->errors)){
                 return false;
             }
             if(empty($this->user_image) || empty($this->tmp_path)){
@@ -124,5 +126,11 @@ class User extends Db_object
             return unlink($target_path) ? true : false;
         }
 
+    }
+    public function update_userphoto(){
+        if(!empty($this->user_image)){
+            $target_path = SITE_ROOT.DS.'admin'.DS.$this->picture_path_and_placeholder();
+            return unlink($target_path) ? true: false;
+        }
     }
 }
