@@ -1,6 +1,6 @@
 <?php
 require_once ("includes/header.php");
-require_once("admin/includes/init.php");
+
 require_once ("includes/navbar.php");
 if(empty($_GET['id'])){
     header("Location:index.php");

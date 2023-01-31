@@ -5,7 +5,8 @@
     }
     include("includes/sidebar.php");
     include("includes/content-top.php");
-    $users = User::find_all();
+    //$users = User::find_all();
+
     ?>
 
 <div class="container-fluid">

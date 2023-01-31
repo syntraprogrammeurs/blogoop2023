@@ -1,3 +1,8 @@
+<?php
+$users = User::find_all();
+//$userscount = count($users);
+
+?>
 <div id="main">
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
@@ -23,7 +28,7 @@
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                         <h6 class="text-muted font-semibold">Users</h6>
-                                        <h6 class="font-extrabold mb-0">112.000</h6>
+                                        <h6 class="font-extrabold mb-0"><?php echo count($users) ?></h6>
                                     </div>
                                 </div>
                             </div>
