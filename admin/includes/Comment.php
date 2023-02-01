@@ -34,4 +34,11 @@ class Comment extends Db_object
         $sql .= " ORDER BY id DESC";
         return self::find_this_query($sql);
     }
+    public static function find_the_comment_and_title($photo_id, $author){
+        global $database;
+        $sql = "SELECT * FROM " . self::$table_name;
+        $sql .= " WHERE photo_id = " . $database->escape_string($photo_id) . " AND author = " . $database->escape_string($author);
+        $sql .= " ORDER BY id DESC";
+        return self::find_this_query($sql);
+    }
 }

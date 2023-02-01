@@ -6,7 +6,7 @@ if(!$session->is_signed_in()){
 include("includes/sidebar.php");
 include("includes/content-top.php");
 $comments = Comment::find_all();
-//$photo = Photo::find_by_id($_GET['id']);
+$photo = Photo::find_by_id($_GET['id']);
 ?>
 
 <div class="container-fluid">
@@ -22,7 +22,7 @@ $comments = Comment::find_all();
                     </ol>
                 </nav>
             </div>
-            <h1 class="page-header">Comments</h1>
+            <h1 class="page-header">Comments on <?php echo $photo->id . ":" .$photo->title?></h1>
             <hr>
             <table id="table_id" class="table table-lg">
                 <thead>
@@ -40,32 +40,34 @@ $comments = Comment::find_all();
                 </thead>
                 <tbody>
                 <?php foreach($comments as $comment): ?>
-                    <tr>
-                        <td>
-                            <div class="form-check mb-0 fs-0">
-                                <input type="checkbox" class="form-check-input">
-                            </div>
-                        </td>
-                        <td>
-                            <?php echo $comment->id; ?>
-                        </td>
-                        <td>
-                            <?php echo $comment->author; ?>
-                        </td>
-                        <td>
-                            <?php echo $comment->body; ?>
-                        </td>
-                        <td>
-                            <a class="btn btn-danger" href="edit_comment.php?id=<?php echo $comment->id; ?>">
-                                <i class="bi bi-pencil-square"></i>
-                            </a>
+                    <?php if($comment->photo_id == $photo->id): ?>
+                        <tr>
+                            <td>
+                                <div class="form-check mb-0 fs-0">
+                                    <input type="checkbox" class="form-check-input">
+                                </div>
+                            </td>
+                            <td>
+                                <?php echo $comment->id; ?>
+                            </td>
+                            <td>
+                                <?php echo $comment->author; ?>
+                            </td>
+                            <td>
+                                <?php echo $comment->body; ?>
+                            </td>
+                            <td>
+                                <a class="btn btn-danger" href="edit_comment.php?id=<?php echo $comment->id; ?>">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
 
-                            <a class="btn btn-danger" href="delete_comment.php?id=<?php echo $comment->id; ?>">
-                                <i class="bi bi-trash3-fill"></i>
-                            </a>
-                        </td>
+                                <a class="btn btn-danger" href="delete_comment.php?id=<?php echo $comment->id; ?>">
+                                    <i class="bi bi-trash3-fill"></i>
+                                </a>
+                            </td>
 
-                    </tr>
+                        </tr>
+                    <?php endif;?>
                 <?php endforeach; ?>
 
                 </tbody>

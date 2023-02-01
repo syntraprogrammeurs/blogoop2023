@@ -1,7 +1,7 @@
 <?php
-$users = User::find_all();
+//$users = User::find_all();
+//$comments = Comment::find_all();
 //$userscount = count($users);
-
 ?>
 <div id="main">
     <header class="mb-3">
@@ -28,7 +28,7 @@ $users = User::find_all();
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                         <h6 class="text-muted font-semibold">Users</h6>
-                                        <h6 class="font-extrabold mb-0"><?php echo count($users) ?></h6>
+                                        <h6 class="font-extrabold mb-0"><?php echo User::count_all(); ?></h6>
                                     </div>
                                 </div>
                             </div>
@@ -44,8 +44,8 @@ $users = User::find_all();
                                         </div>
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                        <h6 class="text-muted font-semibold">Followers</h6>
-                                        <h6 class="font-extrabold mb-0">183.000</h6>
+                                        <h6 class="text-muted font-semibold">Comments</h6>
+                                        <h6 class="font-extrabold mb-0"><?php echo Comment::count_all(); ?></h6>
                                     </div>
                                 </div>
                             </div>

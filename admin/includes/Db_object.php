@@ -143,4 +143,13 @@ class Db_object
         return array_key_exists($the_attribute, $object_properties);
     }
 
+    public static function count_all(){
+        global $database;
+        $sql = "SELECT COUNT(*) FROM " . static::$table_name . " ";
+        $result = $database->query($sql);
+        $row = $result->fetch_array();
+        return array_shift($row);
+       // return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+    }
+
 }

@@ -78,11 +78,23 @@
                             <?php echo $photo->deleted_at; ?>
                         </td>
                         <td>
+                            <a href="comments_photo.php?id=<?php echo $photo->id; ?>">
+                                <i class="bi bi-chat-right-text-fill"></i>
+                                <?php
+                                    $comments = Comment::find_the_comment($photo->id);
+                                    echo count($comments);
+                                ?>
+                            </a>
+                        </td>
+                        <td>
                             <a title="update" class="btn btn-danger rounded-0" href="edit_photo.php?id=<?php echo $photo->id;?>">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
                             <a title="delete" class="btn btn-danger rounded-0" href="delete_photo.php?id=<?php echo $photo->id; ?>">
                                 <i class="bi bi-trash-fill"></i>
+                            </a>
+                            <a title="blogdetail" target="_blank" class="btn btn-warning rounded-0" href="../blogdetail.php?id=<?php echo $photo->id; ?>">
+                                <i class="bi bi-eye-fill"></i>
                             </a>
                         </td>
                         <th></th>
